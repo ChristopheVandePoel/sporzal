@@ -2,7 +2,7 @@
 
 A small chrome-extension that creates a video portal so you can circumvent the sporza website. I created it because the site kept crashing my video and I need RIO!
 
-Pull and add the directory to chrome. Installing is only necessary when running locally, not if you install as an extension.
+Pull/download and unzip somewhere if needed. Add this directory in your chrome extensions (you will need to have developer mode turned on for that). Npm installing is only necessary when running locally, not if you install as an extension. (see below)
 
 
 ## limitations
