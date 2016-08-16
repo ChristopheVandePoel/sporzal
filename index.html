@@ -1,5 +1,5 @@
 <html><head>
-  <script src="https://cdn.jsdelivr.net/hls.js/latest/hls.min.js"></script>
+  <script src="hls.js"></script>
   <style>
     body{
       background-color:black;
@@ -26,64 +26,17 @@
 <title>Player</title></head>
 <body>
 <video controls id="video"></video>
-<script>
-
- function playSporzaVid(id){
-	var url = "http://ovpvrt1-live.hls.adaptive.level3.net/vrt/channel0" + id + "/1.m3u8"
-	// console.log(url);
-	
-	switch (id){
-		case 1:
-			url = "http://ovpvrt1-live.hls.adaptive.level3.net/vrt/channel01/1.m3u8";
-			break;
-		case 2:
-			url = "http://ovpvrt2-live.hls.adaptive.level3.net/vrt/channel02/1.m3u8";
-			break;
-		case 3:
-			url = "http://ovpvrt3-live.hls.adaptive.level3.net/vrt/channel03/1.m3u8";
-			break;
-		case 4:
-			url = "http://ovpvrt4-live.hls.adaptive.level3.net/vrt/channel04/1.m3u8";
-			break;
-		case 5:
-			url = "http://live.stream.vrt.be/vrt_sporza_live/_definst_/smil:vrt_sporza_live.smil/chunklist_w494123392_b1296000.m3u8";
-			break;
-		case 6:
-			url = "http://live.stream.vrt.be/vrt_events1_live/_definst_/smil:vrt_events1_live.smil/chunklist_w143725990_b1296000.m3u8";
-			break;
-	}
-	
-	if(Hls.isSupported()) {
-		var video = document.getElementById('video');
-		var hls = new Hls();
-		hls.loadSource(url);
-		hls.attachMedia(video);
-		hls.on(Hls.Events.MANIFEST_PARSED,function() {
-			video.play();
-		});
-	}
-	if (event) {
-
-	}
- }
- if (window.location.hash){
-	playSporzaVid(window.location.hash.substring(1,2));
- }else {
-	playSporzaVid(1);
- }
-
-</script>
 
 <br />
 <div class="centered">
-<a href="#1" onclick="playSporzaVid(1, event)">Video 1</a> |
-<a href="#2" onclick="playSporzaVid(2, event)">Video 2</a> |
-<a href="#3" onclick="playSporzaVid(3, event)">Video 3</a> |
-<a href="#4" onclick="playSporzaVid(4, event)">Video 4</a> |
-<a href="#5" onclick="playSporzaVid(5, event)">Video 5</a> |
-<a href="#6" onclick="playSporzaVid(6, event)">Video 6</a>
+	<a href="#1" data-id="1" class="streamLink">Video 1</a> |
+	<a href="#2" data-id="2" class="streamLink">Video 2</a> |
+	<a href="#3" data-id="3" class="streamLink">Video 3</a> |
+	<a href="#4" data-id="4" class="streamLink">Video 4</a> |
+	<a href="#5" data-id="5" class="streamLink">Video 5</a> |
+	<a href="#6" data-id="6" class="streamLink">Video 6</a>
 </div>
 
-
+<script src='workit.js'></script>
 
 </body></html>
