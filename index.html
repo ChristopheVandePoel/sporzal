@@ -1,4 +1,5 @@
-<html><head>
+<html>
+<head>
   <script src="hls.js"></script>
   <style>
     body{
@@ -22,8 +23,32 @@
 		display: block;
 		margin: auto;
 	}
+	#destructionText{
+		padding: 10px;
+	}
+	.showMeRed{
+		color: tomato;
+	}
+	#setDestroyTime{
+		width: 40px;
+	    text-align: center;
+	    background-color: #f3f3f3;
+	    border: 0;
+	    line-height: 1em;
+	    padding: 0.5em;
+	    vertical-align: bottom;
+	    font-size: 13px;
+	}
+	#destroyButton{
+	    text-align: center;
+    	padding: 0.5em;
+    	background-color: cornsilk;
+    	border: 0;
+    	font-size: 13px;
+	}
   </style>
-<title>Player</title></head>
+<title>Player</title>
+</head>
 <body>
 <video controls id="video"></video>
 
@@ -36,6 +61,14 @@
 	<a href="#5" data-id="5" class="streamLink">Video 5</a> |
 	<a href="#6" data-id="6" class="streamLink">Video 6</a> |
 	<a href="#stop" data-id="6" id="stopLink">STOP THAT BUFFERING</a>	
+</div>
+<br />
+<div class="centered">
+	<input type="text" value="0" id="setDestroyTime">
+	<button id="destroyButton">Protect My Bandwidth!</button>
+	<div id="destructionText" class="showMeRed">
+		Automatic stop is not set, mind your bandwidth!
+	</div>
 </div>
 
 <script src='workit.js'></script>
