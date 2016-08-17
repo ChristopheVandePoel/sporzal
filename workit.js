@@ -62,3 +62,13 @@ var nodes = document.getElementsByClassName("streamLink");
 for (var i = 0; i < nodes.length; i++) {
 	nodes[i].addEventListener("click", buttonHandler)
 }
+
+function stopHandler() {
+		if(hls){
+			hls.destroy();
+		}
+}
+
+var stop = document.getElementById("stopLink");
+
+stop.addEventListener("click", stopHandler);
