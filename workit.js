@@ -152,8 +152,8 @@ function displayCountdown(countDownTime){
 	}, 60000);
 }
 
-function resetCountDown(countDownId, stopflag = false){
-	clearTimeout(countDownId);
+function resetCountDown(countId, stopflag = false){
+	clearTimeout(countId);
 	countDownId = null;
 	if (stopflag){
 		warnForDestruction()	
