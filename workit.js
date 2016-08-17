@@ -22,30 +22,8 @@
  // This is the main play function
 
  function playSporzaVid(id){
-	var url = "http://ovpvrt1-live.hls.adaptive.level3.net/vrt/channel0" + id + "/1.m3u8"
-	// console.log(url);
-	// TODO: yeah. Maybe refactor this one.
-	switch (parseInt(id)){
-		case 1:
-			url = "http://ovpvrt1-live.hls.adaptive.level3.net/vrt/channel01/1.m3u8";
-			break;
-		case 2:
-			url = "http://ovpvrt2-live.hls.adaptive.level3.net/vrt/channel02/1.m3u8";
-			break;
-		case 3:
-			url = "http://ovpvrt3-live.hls.adaptive.level3.net/vrt/channel03/1.m3u8";
-			break;
-		case 4:
-			url = "http://ovpvrt4-live.hls.adaptive.level3.net/vrt/channel04/1.m3u8";
-			break;
-		case 5:
-			url = "http://live.stream.vrt.be/vrt_sporza_live/_definst_/smil:vrt_sporza_live.smil/chunklist_w494123392_b1296000.m3u8";
-			break;
-		case 6:
-			url = "http://live.stream.vrt.be/vrt_events1_live/_definst_/smil:vrt_events1_live.smil/chunklist_w143725990_b1296000.m3u8";
-			break;
-	}
-	
+	var url = getVideoUrl(parseInt(id));
+
 	if(Hls.isSupported()) {
 		if(hls){
 			console.log('destroying');
@@ -67,6 +45,26 @@
 			});
 		})
 	}
+ }
+
+ function getVideoUrl(id) {
+ 	var url = "http://ovpvrt1-live.hls.adaptive.level3.net/vrt/channel0" + id + "/1.m3u8"
+	// console.log(url);
+	switch (parseInt(id)){
+		case 1:
+		case 2:
+		case 3:
+		case 4:
+			url = "http://ovpvrt"+ id + "-live.hls.adaptive.level3.net/vrt/channel0" + id + "/1.m3u8";
+			break;
+		case 5:
+			url = "http://live.stream.vrt.be/vrt_sporza_live/_definst_/smil:vrt_sporza_live.smil/chunklist_w494123392_b1296000.m3u8";
+			break;
+		case 6:
+			url = "http://live.stream.vrt.be/vrt_events1_live/_definst_/smil:vrt_events1_live.smil/chunklist_w143725990_b1296000.m3u8";
+			break;
+	}
+	return url;
  }
 
 // Check if there is a video already set (usually means a refresh of the tab)
