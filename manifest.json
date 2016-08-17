@@ -1,6 +1,6 @@
 {
 	"name": "Sporza Rio player Portal",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "Play sporza HLS video without the flash overhead",
 	"manifest_version": 2,
 	"permissions": [

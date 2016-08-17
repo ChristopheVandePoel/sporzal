@@ -19,8 +19,7 @@ And reloading the extension.
 Maybe I'll expand this, if it lasts outside the olympics. :)
 
 ##Known issues
-- Sometimes the video doesn't load immediately after clicking the link. Just click it again. I'm not sure why this happens.
-- this will (probably) not work outside belgium. Streams are free for Belgium, since its national television here
+- this will (probably) not work outside Belgium. Streams are free for Belgium, since its national television here
 - the stream urls may change over time. I'll (maybe) update when that happens
  
 
@@ -28,6 +27,8 @@ Maybe I'll expand this, if it lasts outside the olympics. :)
 I'm assuming this is legal, since the content is provided for free to everybody who can access it.
 
 ### Additional info
+
+(the following might no longer be true after updates:)
 You can also run this locally, use: https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en but I don't recommend it.
 
 Dependencies: nodeJs

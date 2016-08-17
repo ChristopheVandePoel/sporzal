@@ -1,5 +1,21 @@
  var hls = null;
  
+ // hls 304 workaround. See: https://github.com/dailymotion/hls.js/issues/615
+ 
+ var config = {
+  xhrSetup: function(xhr, url) {
+    if (url.split('.').pop() == 'm3u8') {
+      url = url.replace('m3u8', 'm3u8?rd=' + Math.random());
+      xhr.open('GET', url, true); 
+    }    
+    if (url.indexOf('?rd=') > -1) {
+      url = url.replace(/(rd=)[^\&]+/, 'rd=' + Math.random())
+      xhr.open('GET', url, true); 
+    }
+  }, 
+  debug:false
+}
+ 
  function playSporzaVid(id){
 	var url = "http://ovpvrt1-live.hls.adaptive.level3.net/vrt/channel0" + id + "/1.m3u8"
 	// console.log(url);
@@ -27,18 +43,26 @@
 	
 	if(Hls.isSupported()) {
 		if(hls){
+			console.log('destroying');
 			hls.destroy();
 		}
-		hls = new Hls();
-		hls.loadSource(url);
+		console.log("creating new hls");
+		hls = new Hls(config);
+		
 		hls.attachMedia(video);
-		hls.on(Hls.Events.MEDIA_ATTACHED,function(){
-			console.log('playing new video');
-			video.play();
+		console.log("twice?");
+		hls.on(Hls.Events.MEDIA_ATTACHED,function(event, data){
+			hls.loadSource(url);
+			hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
+				console.log("manifest loaded, found " + data.levels.length + " quality level");
+				console.log('playing new video');
+				video.play();
+			});
 		})
+		console.log("twice?");
 	}
  }
- 
+
 if(Hls.isSupported()) {
 	console.log("Setting Hls event handlers");
 	var video = document.getElementById('video');
@@ -51,7 +75,7 @@ if(Hls.isSupported()) {
  }
  
  function buttonHandler(event){
-	console.log(event)
+	//console.log(event)
 	if(event.target && event.target.attributes) {
 		playSporzaVid(parseInt(event.target.attributes["data-id"].value));
 	}
