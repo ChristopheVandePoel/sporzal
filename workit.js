@@ -25,7 +25,7 @@
 	var url = "http://ovpvrt1-live.hls.adaptive.level3.net/vrt/channel0" + id + "/1.m3u8"
 	// console.log(url);
 	// TODO: yeah. Maybe refactor this one.
-	switch (id){
+	switch (parseInt(id)){
 		case 1:
 			url = "http://ovpvrt1-live.hls.adaptive.level3.net/vrt/channel01/1.m3u8";
 			break;
