@@ -17,13 +17,14 @@
 	a {
 		color: lightgray;
 	}
-	.centered {
+	.centered--container {
 		width: 100%;
 		text-align: center;
 		display: block;
 		margin: auto;
+		padding-top: 30px;
 	}
-	#destructionText{
+	.button-text{
 		padding: 10px;
 	}
 	.showMeRed{
@@ -53,20 +54,26 @@
 <video controls id="video"></video>
 
 <br />
-<div class="centered">
+<div class="centered--container">
 	<a href="#1" data-id="1" class="streamLink">Video 1</a> |
 	<a href="#2" data-id="2" class="streamLink">Video 2</a> |
 	<a href="#3" data-id="3" class="streamLink">Video 3</a> |
 	<a href="#4" data-id="4" class="streamLink">Video 4</a> |
 	<a href="#5" data-id="5" class="streamLink">Video 5</a> |
 	<a href="#6" data-id="6" class="streamLink">Video 6</a> |
-	<a href="#stop" data-id="6" id="stopLink">STOP THAT BUFFERING</a>	
+	<a href="#stop" data-id="6" id="stopLink">STOP VIDEO</a>	
 </div>
-<br />
-<div class="centered">
+
+<div class="centered--container">
+	<div class="button-text">
+		Set the amount of minutes before the video automatically 
+		stops. These video's are heavy on the bandwidth.<br /> 
+		(and you might fall asleep, you know, while watching golf) <br /> <br /> 
+		Set to "0" to never stop playing.
+	</div>
 	<input type="text" value="0" id="setDestroyTime">
 	<button id="destroyButton">Protect My Bandwidth!</button>
-	<div id="destructionText" class="showMeRed">
+	<div id="destructionText" class="showMeRed button-text">
 		Automatic stop is not set, mind your bandwidth!
 	</div>
 </div>

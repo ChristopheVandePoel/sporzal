@@ -126,10 +126,10 @@ function processDestruction(){
 		displayCountdown(setTime);
 		timeoutId = setTimeout(function(){
 			console.log("Destruction initiated!");
-			//stopHandler();
+			stopHandler();
 			timeoutId = null;
-		}, setTime * 1000);
-		console.log("Destruction set", timeoutId, setTime);
+		}, setTime * 1000 * 60);
+		console.log("Destruction set");
 	}else {
 		if(countDownId){
 			resetCountDown(countDownId, true);
@@ -141,7 +141,7 @@ function displayCountdown(countDownTime){
 	if(countDownId){
 		resetCountDown(countDownId);
 	}
-	destructionText.innerHTML = "Video will stop in: " + countDownTime;
+	destructionText.innerHTML = "Video will stop in: " + countDownTime + ((countDownTime > 1) ? " minutes" : " minute");
 	destructionText.classList.remove("showMeRed");
 	countDownId = setInterval(function(){
 		countDownTime--;
@@ -149,9 +149,9 @@ function displayCountdown(countDownTime){
 			destructionText.innerHTML = "Video stopped. Bandwidth safe!";
 			resetCountDown(countDownId);
 		} else{
-			destructionText.innerHTML = "Video will stop in: " + countDownTime;
+			destructionText.innerHTML = "Video will stop in: " + countDownTime + ((countDownTime > 1) ? " minutes" : " minute");
 		}
-	}, 1000);
+	}, 60000);
 }
 
 function resetCountDown(countDownId, stopflag = false){
